@@ -35,9 +35,11 @@ const Auth = () => {
                         <input type="password" name="password" id="password" />
                         { isSignup && <p style={{color:"#666767", fontSize:'13px'}}> Passwors must contain at least eight <br/> characters, including at least 1<br/> letter and 1 number.</p> }
                     </label>
+                       
                         { isSignup && <label htmlFor='check'>
                         <input type="checkbox" id='check' />
-                        <p style={{ fontSize:'13px'}}>Opt-in to recieve occasional <br /> product updates, user research invitation, <br /> company announcements and digests.</p></label>}
+                        <p style={{ fontSize:'13px'}}>Opt-in to recieve occasional <br /> product updates, user research <br /> invitation, company announcements <br /> and digests.</p></label>}
+                    
                     <button type='submit' className='auth-btn' > { isSignup ? 'Sign up' : 'Log in' }</button>
                 </form>
                 <p>     

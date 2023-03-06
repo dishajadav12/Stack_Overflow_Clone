@@ -9,7 +9,7 @@ import Avatar from './Avatar/Avatar'
 export default function Navbar() {
     var user=null;
   return (
-   <nav>
+   <nav className='main-nav'>
     <div className='navbar'>
       <Link to='/' className='nav-item nav-logo'>
             <img src={logo} alt="logo"  />

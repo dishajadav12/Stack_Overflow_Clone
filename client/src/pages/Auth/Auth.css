@@ -45,12 +45,12 @@
     margin-bottom: 5px;
     margin-top: 10px;
 }
-.auth-container form label:nth-child(4) h4{
+.auth-container form label:nth-child(4) {
     display: flex;
 }
 .auth-container form label:nth-child(4) input{
-width: 15%;
-margin: 13px 0px;
+width: 5%;
+margin: 0 10px 45px 0;
 }
 .auth-btn{
     margin-top: 10px;

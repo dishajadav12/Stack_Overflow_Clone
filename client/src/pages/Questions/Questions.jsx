@@ -5,7 +5,7 @@ import HomeMainbar from '../../components/HomeMainbar/HomeMainbar'
 import RightSidebar from '../../components/RightSidebar/RightSidebar'
 
 
-const Home = () => {
+const Questions = () => {
   return (
     <div className='home-container-1'>
         <LeftSidebar/>
@@ -18,4 +18,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Questions
