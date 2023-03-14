@@ -6,36 +6,63 @@ import QuestionsList from './QuestionsList'
 
 const HomeMainbar = () => {
   var questionsList = [{
-    id:1,
-    votes: 3,
+    _id:1,
+    upVotes: 3,
+    downVotes:3,
     noOfAnswers: 2,
     questionTitle: "what is a function?",
     questionBody: "It meant to be",
     questionTags: ["java","reactjs","nodejs","mongodb"],
     userPosted:"mano",
-    askedOn: "jan 1"
+    userId:1,
+    askedOn: "jan 1",
+    answer: [{
+      answerBody:"Answer",
+      userAnswered:"Jadav",
+      answeredOn:"jan 2",
+      userId:2,
+
+    }]
   },{
     
-      id:2,
-      votes: 0,
+      _id:2,
+      upVotes: 3,
+      downVotes:3,
       noOfAnswers: 0,
       questionTitle: "what is a function?",
       questionBody: "It meant to be",
       questionTags: ["javascript","R","nodejs"],
       userPosted:"mano",
-      askedOn: "jan 1"
+      userId:1,
+      askedOn: "jan 1",
+      answer: [{
+        answerBody:"Answer",
+        userAnswered:"Jadav",
+        answeredOn:"jan 2",
+        userId:2,
+
+      }]
     
   },
   {
     
-    id:3,
-    votes: 1,
+    _id:3,
+    upVotes: 1,
+    downVotes:3,
     noOfAnswers: 0,
     questionTitle: "what is a function?",
     questionBody: "It meant to be",
     questionTags: ["javascript","R","nodejs"],
     userPosted:"mano",
-    askedOn: "jan 1"
+    userId:1,
+    askedOn: "jan 1",
+    answer: [{
+      answerBody:"Answer",
+      userAnswered:"Jadav",
+      answeredOn:"jan 2",
+      userId:2,
+
+    }]
   
 }]
       const location= useLocation()
