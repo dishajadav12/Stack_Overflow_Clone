@@ -6,7 +6,7 @@ const Questions = ({question}) => {
     <div className='display-question-container'>
       <div className='display-votes-ans'>
         <p>
-          {question.upVotes}
+          {question.upVotes - question.downVotes}
         </p>
           <p>votes</p>
       </div>
@@ -27,7 +27,7 @@ const Questions = ({question}) => {
             }
              </div>
              <p className='display-time'>
-                  asked {question.askedOn} {question.userPosted}
+                  asked on {question.askedOn} {question.userPosted}
 
              </p>
         </div>

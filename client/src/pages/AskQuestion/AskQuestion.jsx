@@ -14,6 +14,7 @@ const AskQuestion = () => {
 
     const handleSubmit= (e) =>{
         e.preventDefault()
+        // console.log({ questionBody, questionTags, questionTitle})
         dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name}, navigate)) 
     }
 
@@ -47,13 +48,13 @@ const AskQuestion = () => {
                         <input type="text" id='ask-ques-tags' onChange={(e)=>{setQuestionTags(e.target.value.split(' '))}} placeholder='e.g (xml,typscript,wordpress)' />
                     </label>
                 </div>
-                {/* <input type="submit" value='Review your question' className='review-btn'/> */}
-                <button type='submit' className='review-btn' >Review your question</button>
+                <input type="submit" value='Review your question' className='review-btn'/>
+                {/* <button type='submit' className='review-btn' >Review your question</button> */}
 
             </form>
         </div>
 
     </div>
   )
-}
+}  
 export default AskQuestion

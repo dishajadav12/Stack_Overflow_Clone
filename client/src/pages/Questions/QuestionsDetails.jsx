@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import ArrowUp from '../../assets/caret-up-solid.svg'
 import ArrowDown from '../../assets/caret-down-solid.svg'
 import Avatar from '../../components/Avatar/Avatar'
@@ -8,74 +9,18 @@ import DisplayAnswer from './DisplayAnswer'
 const QuestionsDetails = () => {
 
     const {id}=useParams()
-    var questionsList = [{
-        _id:'1',
-        upVotes: 3,
-        downVotes:1,
-        noOfAnswers: 2,
-        questionTitle: "what is a function?",
-        questionBody: "It meant to be",
-        questionTags: ["java","reactjs","nodejs","mongodb"],
-        userPosted:"mano",
-        userId:1,
-        askedOn: "jan 1",
-        answer: [{
-          answerBody:"Answer",
-          userAnswered:"Jadav",
-          answeredOn:"jan 2",
-          userId:2,
+
+    const questionsList = useSelector(state => state.questionsReducer)
+    console.log(questionsList)
     
-        }]
-      },{
-        
-          _id:'2',
-          upVotes: 3,
-          downVotes:4,
-          noOfAnswers: 0,
-          questionTitle: "what is a function?",
-          questionBody: "It meant to be",
-          questionTags: ["javascript","R","nodejs"],
-          userPosted:"mano",
-          userId:1,
-          askedOn: "jan 1",
-          answer: [{
-            answerBody:"Answer",
-            userAnswered:"Jadav",
-            answeredOn:"jan 2",
-            userId:2,
-    
-          }]
-        
-      },
-      {
-        
-        _id:3,
-        upVotes: '1',
-        downVotes:3,
-        noOfAnswers: 0,
-        questionTitle: "what is a function?",
-        questionBody: "It meant to be",
-        questionTags: ["javascript","R","nodejs"],
-        userPosted:"mano",
-        userId:1,
-        askedOn: "jan 1",
-        answer: [{
-          answerBody:"Answer",
-          userAnswered:"Jadav",
-          answeredOn:"jan 2",
-          userId:2,
-    
-        }]
-      
-    }]
   return (
     <div className='question-details-page'>
         {
-            questionsList === null ? 
+            questionsList.data === null ? 
             <h1>Loading...</h1>:
             <>
             {
-                questionsList.filter(question => question._id === id).map(question => (
+                questionsList.data.filter(question => question._id === id).map(question => (
                     <div key={question._id}>
                       <section className='question-details-container'>
                             <h1>{question.questionTitle}</h1>
