@@ -72,12 +72,13 @@ export const deleteAnswer = async (req, res) => {
         return res.status(404).send('question unavailable...');
     }
     if (!mongoose.Types.ObjectId.isValid(answerId)) {
-        return res.status(404).send('question unavailable...');
+        return res.status(404).send('answer unavailable...');
     }
     updateNoOfQuestions(_id, noOfAnswers);
     try {
         await Questions.updateOne(
-            {_id},{$pull: {'answer':{_id: answerId}}}
+            {_id},
+            {$pull: {'answer':{_id: answerId}}}
         )
 
         res.status(200).json(deleteAnswer);
