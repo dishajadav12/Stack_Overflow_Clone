@@ -1,23 +1,35 @@
 import React,{useEffect} from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {  useSelector, useDispatch } from "react-redux";
 import logo from '../assets/logo.svg'
 import search from '../assets/magnifying-glass-solid.svg'
 import Avatar from './Avatar/Avatar'
 import { setCurrentUser} from '../actions/currentUser'
+import decode from 'jwt-decode'
 
 
 export default function Navbar() {
   
-  
+  const navigate= useNavigate()
   const dispatch= useDispatch()
-  var user=useSelector((state)=> (state.currentUserReducer));
-    useEffect(()=>{
-      dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+  var User=useSelector((state)=> (state.currentUserReducer));
 
-    },[dispatch])
-
+  const handleLogout=()=>{
+    dispatch({type: 'LOGOUT'});
+    navigate('/');
+    dispatch(setCurrentUser(null));
+  }
+  useEffect(() => {
+    const token = User?.token;
+    if (token) {
+      const decodedToken = decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        handleLogout();
+      }
+    }
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
+  }, [dispatch]);
 
   return (
    <nav className='main-nav'>
@@ -32,10 +44,10 @@ export default function Navbar() {
         <input type="text" placeholder='search...' />
         <img src={search} alt="" width="18" className='search-icon' />
       </form>
-        {user === null ? 
+        {User === null ? 
         <Link to="/Auth" className='nav-item nav-links'>Log In</Link> : <>
-        <Avatar backgroundColor="#009dff" px="10px" py="5px" borderRadius="50%" cursor="pointer" fontSize="18px" ><Link to="/User" style={{color:"white", textDecoration:"none"}}>{user.result.name.charAt(0).toUpperCase()}</Link></Avatar>
-        <button className='nav-item nav-links'>Log Out</button>
+        <Avatar backgroundColor="#009dff" px="10px" py="5px" borderRadius="50%" cursor="pointer" fontSize="18px" ><Link to="/User" style={{color:"white", textDecoration:"none"}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
+        <button className='nav-item nav-links' onClick={handleLogout}>Log Out</button>
         </>
     }
     </div>

@@ -2,6 +2,12 @@ import axios from 'axios'
 
 const API = axios.create({ baseURL: 'http://localhost:5000/'})
 
+// API.interceptors.request.use((req)=> {
+//     if(localStorage.getItem('Profile')){
+//         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('Profile')).token }`
+//     }
+// })
+
 export const login = (authData) => API.post('/user/login', authData);
 export const signup = (authData) => API.post('/user/signup', authData);
 
