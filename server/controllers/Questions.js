@@ -40,3 +40,53 @@ export const deleteQuestion = async (req, res) => {
 
 
 }
+
+export const voteQuestion = async (req, res) => {
+    const {id: _id} = req.params;
+    const {value, userId} = req.body;
+    console.log(123)
+    console.log(_id)
+    console.log(value)
+
+    console.log(userId)
+
+    
+
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return res.status(404).send('question unavailable...');
+    }
+
+    try {
+        const question = await Questions.findById(_id)
+        const upIndex = question.upVote.findIndex((id) => id ===String(userId))
+        const downIndex = question.downVote.findIndex((id) => id ===String(userId))
+
+        if(value === 'upvote'){
+            if(downIndex !== -1){
+                question.downVote = question.downVote.filter((id) => id !== String(userId)) 
+            }
+            if(upIndex === -1){
+                question.upVote.push(userId)
+            } else{
+                question.upVote = question.downVote.filter((id) => id !== String(userId))
+            }
+        }
+      else if(value === 'downvote'){
+            if(upIndex !== -1){
+                question.upVote = question.upVote.filter((id) => id !== String(userId)) 
+            }
+            if(downIndex === -1){
+                question.downVote.push(userId)
+            } else{
+                question.downVote = question.upVote.filter((id) => id !== String(userId))
+            }
+        }
+        await Questions.findByIdAndUpdate(_id, question)
+        res.status(200).json({message: "Voted successfully..."})
+    } catch (error) {
+        res.status(404).json({message: "Id not found"})
+
+    }
+
+}
+

@@ -8,7 +8,7 @@ import ArrowDown from '../../assets/caret-down-solid.svg'
 import Avatar from '../../components/Avatar/Avatar'
 import './Questions.css'
 import DisplayAnswer from './DisplayAnswer'
-import { postAnswer, deleteQuestion } from '../../actions/question'
+import { postAnswer, deleteQuestion, voteQuestion} from '../../actions/question'
 
 
 import copy from 'copy-to-clipboard'
@@ -52,6 +52,13 @@ const QuestionsDetails = () => {
       dispatch(deleteQuestion(id,Navigate))
     }
     
+    const handleUpVote = () => {
+      dispatch(voteQuestion(id,'upvote', User.result._id))
+    }
+
+    const handleDownVote = () => {
+      dispatch(voteQuestion(id,'downvote', User.result._id))
+    }
   return (
     <div className='question-details-page'>
         {
@@ -65,9 +72,9 @@ const QuestionsDetails = () => {
                             <h1>{question.questionTitle}</h1>
                             <div className='question-details-container-2'>
                                 <div className="question-votes">
-                                    <img src={ArrowUp} alt="caret-up arrow" className='votes-icon' />
-                                    <p>{question.upVotes - question.downVotes}</p>
-                                    <img src={ArrowDown} alt="caret-down arrow" className='votes-icon' />
+                                    <img src={ArrowUp} alt="caret-up arrow" className='votes-icon' onClick={handleUpVote}/>
+                                    <p>{question.upVote.length - question.downVote.length}</p>
+                                    <img src={ArrowDown} alt="caret-down arrow" className='votes-icon' onClick={handleDownVote} />
 
                                 </div>
                                 <div style={{width:"100%"}}>
