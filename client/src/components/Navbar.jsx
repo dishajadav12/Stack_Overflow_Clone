@@ -46,7 +46,7 @@ export default function Navbar() {
       </form>
         {User === null ? 
         <Link to="/Auth" className='nav-item nav-links'>Log In</Link> : <>
-        <Avatar backgroundColor="#009dff" px="10px" py="5px" borderRadius="50%" cursor="pointer" fontSize="18px" ><Link to="/User" style={{color:"white", textDecoration:"none"}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
+        <Avatar backgroundColor="#009dff" px="10px" py="5px" borderRadius="50%" cursor="pointer" fontSize="18px" ><Link to={`/Users/${User?.result?._id}`} style={{color:"white", textDecoration:"none"}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
         <button className='nav-item nav-links' onClick={handleLogout}>Log Out</button>
         </>
     }
