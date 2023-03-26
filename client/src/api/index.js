@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://stack-overflow-clone-iu3r.onrender.com'})
+const API = axios.create({ baseURL: 'https://stack-overflow-clone-q0za.onrender.com'})
 
 
 API.interceptors.request.use((req) => {
