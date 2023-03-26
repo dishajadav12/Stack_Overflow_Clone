@@ -1,5 +1,5 @@
 .main-bar{
-    width: calc(100% );
+    width: calc(100%);
     float: left;
     margin: 25px 0px;
     padding: 0;
@@ -44,7 +44,7 @@
     text-align: center;
 }
 
-.display-question-details{
+.display-question-detail{
     flex-grow: 1;
     padding: 0px 20px;
 }
@@ -58,7 +58,7 @@
     color:#009dff;
 }
 
-.display-question-details p{
+.display-question-detail p{
     padding: 4px;
     margin:0%;
 }

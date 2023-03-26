@@ -44,12 +44,7 @@ export const deleteQuestion = async (req, res) => {
 export const voteQuestion = async (req, res) => {
     const {id: _id} = req.params;
     const {value, userId} = req.body;
-    console.log(123)
-    console.log(_id)
-    console.log(value)
-
-    console.log(userId)
-
+    
     
 
     if (!mongoose.Types.ObjectId.isValid(_id)) {
