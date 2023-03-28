@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import './AskQuestion.css'
-import {askQuestion} from '../../actions/question'
+import {postQuestion} from '../../actions/question'
 const AskQuestion = () => {
     const [questionTitle , setQuestionTitle] = useState('')
     const [questionBody , setQuestionBody] = useState('')
@@ -15,7 +15,7 @@ const AskQuestion = () => {
     const handleSubmit= (e) =>{
         e.preventDefault()
         // console.log({ questionBody, questionTags, questionTitle})
-        dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name,userId: User?.result?._id}, navigate)) 
+        dispatch(postQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name,userId: User?.result?._id}, navigate)) 
     }
 
     const handleEnter = (e) =>{

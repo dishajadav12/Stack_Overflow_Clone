@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -9,6 +9,10 @@ import { fetchAllQuestions } from './actions/question';
 import { fetchAllUsers } from './actions/users';
 
 function App() {
+
+   
+    
+
   const dispatch = useDispatch()
   useEffect(() =>{
    dispatch(fetchAllQuestions())
@@ -19,6 +23,7 @@ function App() {
    <Router>
         <Navbar />
         <AppRoute />
+       
         
    </Router>
    </>
