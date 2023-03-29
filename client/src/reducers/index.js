@@ -3,9 +3,9 @@ import authReducer from "./auth";
 import currentUserReducer from "./currentUser"
 import questionsReducer from './questions'
 import usersReducer from './users'
-import chatBotReducer from './chatBot'
+import chatReducer from "./chat";
 
 
 export default combineReducers({
-    authReducer,currentUserReducer,questionsReducer,usersReducer,chatBotReducer
+    authReducer,currentUserReducer,questionsReducer,usersReducer,chatReducer
 })

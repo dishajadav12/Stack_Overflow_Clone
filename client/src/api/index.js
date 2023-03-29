@@ -3,6 +3,7 @@ import axios from 'axios'
 const API = axios.create({ baseURL: 'https://stack-overflow-clone-q0za.onrender.com/'})
 
 
+
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('Profile')){
         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('Profile')).token}`
@@ -23,4 +24,4 @@ export const deleteAnswer= (id,answerId, noOfAnswers) => API.patch(`/answers/del
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
 export const updateProfile = (id, updateData) => API.patch(`/user/update/${id}`,updateData);
 
-export const chatBot = (prompt) => API.post('/chat/Ask', prompt);
+export const chatAPI = (data) => API.post("/chat/Ask", data);

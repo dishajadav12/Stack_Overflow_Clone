@@ -1,12 +1,10 @@
-import * as api  from '../api'
+import * as api from '../api'
 
-export const chatBot = (prompt) => async (dispatch) =>{
+export const fetchChat = (data) => async (dispatch) => {
     try {
-        const response = await api.chatBot(prompt);
-        dispatch({ type: 'CHAT_ASK', payload: response.data });
+      const response = await api.chatAPI(data);
+      dispatch({ type: "FETCH_CHAT_SUCCESS", payload: response.data });
     } catch (error) {
-        console.error(error.message);
-
+      dispatch({ type: "FETCH_CHAT_ERROR", payload: error.message });
     }
-
-}
+  };
