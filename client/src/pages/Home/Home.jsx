@@ -3,7 +3,6 @@ import '../../App.css'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import HomeMainbar from '../../components/HomeMainbar/HomeMainbar'
 import RightSidebar from '../../components/RightSidebar/RightSidebar'
-import Chat from '../../components/Chat'
 
 
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
           
         </div>
         <RightSidebar/>
-        <Chat/>
      
     </div>
   )

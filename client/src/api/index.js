@@ -1,11 +1,6 @@
 import axios from 'axios'
 
-<<<<<<< HEAD
-
-
-=======
 const API = axios.create({ baseURL: 'https://stack-overflow-clone-q0za.onrender.com'})
->>>>>>> 8cad478bb23cab27ba68d1213fe8ec6b65e60bd7
 
 
 API.interceptors.request.use((req) => {
@@ -28,4 +23,3 @@ export const deleteAnswer= (id,answerId, noOfAnswers) => API.patch(`/answers/del
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
 export const updateProfile = (id, updateData) => API.patch(`/user/update/${id}`,updateData);
 
-export const chatAPI = (data) => API.post("/chat/Ask", data);
