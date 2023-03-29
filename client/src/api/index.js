@@ -1,7 +1,11 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://stack-overflow-clone-q0za.onrender.com/'})
+<<<<<<< HEAD
 
+
+=======
+const API = axios.create({ baseURL: 'https://stack-overflow-clone-q0za.onrender.com'})
+>>>>>>> 8cad478bb23cab27ba68d1213fe8ec6b65e60bd7
 
 
 API.interceptors.request.use((req) => {
