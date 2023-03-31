@@ -1,0 +1,71 @@
+.chat-container{
+    position: fixed;
+    height: 450px;
+    bottom: 20px;
+    right: 20px;
+  
+}
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #009dff;
+    color: #fff;
+    border: solid 1px #009dff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+  }
+.fa-message{
+    font-size: 25px;
+}
+  
+  .chat-icon:hover {
+    background-color:#0086d8 ;
+  }  
+
+
+  .chat-window {
+    position: fixed;
+    top: calc(50% - 200px);
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 360px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .chat-window.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+.cs-message__content{
+    margin-top: 10px;
+    background-color: #e1ecf4;
+}
+
+.cs-button--attachment{
+    color: #666666;
+}
+.cs-message-input__content-editor-wrapper{
+    background-color: #e1ecf4;
+}
+.cs-message-input__content-editor{
+    background-color: #e1ecf4;
+}
+.cs-button--send{
+    color: #666666;
+}
+.cs-button--send:disabled,
+.cs-button--send[disabled]{
+  
+  color: #666666;
+}
