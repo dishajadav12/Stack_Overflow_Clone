@@ -8,7 +8,7 @@ import './ChatBot.css';
 import icon from '../../assets/favicon-32x32.png'
 
 
-const API_KEY = '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';
+const API_KEY = process.env.CHAT_API_KEY;
 
 const ChatBot = () => {
 
