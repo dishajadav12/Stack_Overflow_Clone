@@ -1,13 +1,17 @@
+
 import React, { useState, useRef } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import './ChatBot.css';
+import icon from '../../assets/favicon-32x32.png'
 
-const API_KEY = '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';
+
+const API_KEY = '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';
 
 const ChatBot = () => {
+
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -15,9 +19,7 @@ const ChatBot = () => {
       sender: 'chatGPT',
     },
   ]);
-
-  const chatWindowRef = useRef(null);
-
+  
   const handleSend = async (message) => {
     const newMessage = {
       message: message,
@@ -79,31 +81,94 @@ const ChatBot = () => {
       });
   }
 
-  const handleChatIconClick = () => {
-    chatWindowRef.current.classList.toggle('show');
-  };
-
   
+ 
+
+
+  const [isChatWindowVisible, setIsChatWindowVisible] = useState(false);
+
+  const handleChatIconClick = () => {
+    setIsChatWindowVisible(prevState => !prevState);
+  }
+
+  const otpRef = useRef(null);
+  const mobileRef = useRef(null);
+  const chatGptRef = useRef(null);
+
+  const handleEnter= () => {
+    otpRef.current.classList.add('show');
+    mobileRef.current.classList.add('hide');
+  }
+  const handleSubmit = () => {
+    chatGptRef.current.classList.add('show');
+    otpRef.current.classList.remove('show');
+
+
+  }
+
   return (
     <div className='chat-container'>
- 
-      <button className='chat-icon' onClick={handleChatIconClick}><FontAwesomeIcon icon={faMessage}/></button>
-      <div style={{ position: "relative"}} className='chat-window' ref={chatWindowRef}>  
+      {/* chatbot icon */}
+      <button className='chat-icon' onClick={handleChatIconClick}>
+        <FontAwesomeIcon icon={faMessage}/>
+      </button>
+
+     
+      <div className={`chat-window ${isChatWindowVisible ? 'show' : 'hide'}`}>
+
+
+      {/* chatbot mobile number input */}
+        <div   ref={mobileRef} className='chat-window-container'>
+        <div className='chat-intro-container' >
+                 <p className='welcome-label-1'> Hello! welcome to StackOverflow.</p>
+                  <p className='welcome-label-2'> Find your answers here! </p> 
+            </div>
+          <div className='main-container-auth'>
+            <img src={icon} className='stack-overflow-logo' alt="stackOverflow_logo" />
+              <h3 className='stack-overflow-title'> StackOverflow Assistent</h3>
+                <form action="">
+                   <p className='form-label'> Verify your number to ask a question.</p> 
+                   <input type="tel"/>
+                </form>
+                <button className='auth-btn' onClick={handleEnter}>Send OTP</button>
+          </div>
+        </div>
+
+
+
+      {/* chatbot otp input */}
+        <div  className='chat-window' ref={otpRef}>
+        <div className='chat-intro-container' >
+                 <p className='welcome-label-1'> Hello! welcome to StackOverflow.</p>
+                  <p className='welcome-label-2'> Enter Verification Code </p> 
+            </div>
+          <div className="main-container-auth">
+             <h3>Enter OTP</h3>
+             <form action="">
+             <p className='form-label'> We have sent an OTP on your number</p> 
+
+              <input type="number" />
+             </form>
+             <button className='auth-btn' onClick={handleSubmit}>Verify</button>
+
+          </div>
+        </div>
+      {/* chatbot chatGPT */}
+        <div  className='chat-window' ref={chatGptRef}>  
           <MainContainer className='main-container'>
             <ChatContainer>
               <MessageList typingIndicator={typing ? <TypingIndicator content="ChatGPT is typing" />: null }>
-                  {messages.map((message, i) => {
-                    return <Message key={i} model={message}/>
-                  })
-                  }
+                {messages.map((message, i) => {
+                  return <Message key={i} model={message}/>
+                })}
               </MessageList>
               <MessageInput placeholder='Type message here' onSend={handleSend} className='message-container'/>
             </ChatContainer>
           </MainContainer>
-
+        </div>
         </div>
     </div>
-  )
+  );
 }
 
 export default ChatBot

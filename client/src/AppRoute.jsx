@@ -8,7 +8,6 @@ import DisplayQuestion from './pages/Questions/DisplayQuestion'
 import Tags from './pages/Tags/Tags'
 import Users from './pages/User/Users'
 import UserProfile from './pages/UserProfile/UserProfile'
-import ChatBot from './components/ChatBot/ChatBot'
 
 
 
@@ -24,7 +23,11 @@ const AppRoute = () => {
          <Route exact path='/Tags' element={<Tags/>}/>
          <Route exact path='/Users' element={<Users/>}/>
          <Route exact path='/Users/:id' element={<UserProfile/>}/>
-         <Route exact path='/ChatBot' element={<ChatBot/>}/>
+         
+
+
+
+
 
     </Routes>
   )

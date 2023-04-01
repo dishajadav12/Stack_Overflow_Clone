@@ -1,7 +1,7 @@
 .chat-container{
     position: fixed;
-    height: 450px;
-    bottom: 20px;
+    height: 390px;
+    bottom: 40px;
     right: 20px;
   
 }
@@ -9,10 +9,14 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #009dff;
+    background: #009dff; 
+    background: -moz-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+    background: -webkit-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+    background: linear-gradient(to bottom, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%);
     color: #fff;
     border: solid 1px #009dff;
     border-radius: 50%;
+    border-top-right-radius:0%;
     width: 60px;
     height: 60px;
     text-align: center;
@@ -20,40 +24,76 @@
   }
 .fa-message{
     font-size: 25px;
-}
+  }
   
-  .chat-icon:hover {
+.chat-icon:hover {
     background-color:#0086d8 ;
   }  
+.chat{
+  margin-top: 20%;
+  }
 
-
-  .chat-window {
+.chat-window {
     position: fixed;
-    top: calc(50% - 200px);
-    left: calc(50% - 150px);
+    bottom: 85px;
+    right: 20px;
     width: 300px;
     height: 360px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: #f1f2f3;
     opacity: 0;
-    visibility: hidden;
+    display: none;
     transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 
+  0 20px 48px rgb(0 0 0 / 5%), 
+  0 1px 4px rgb(0 0 0 / 10%);
   }
   
-  .chat-window.show {
+.chat-window.show {
     opacity: 1;
-    visibility: visible;
+    display: block;
   }
-  
+.chat-window.hide {
+    opacity: 0;
+    display: none;
+  }
+.chat-window-container {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    width: 300px;
+    height: 360px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 
+  0 20px 48px rgb(0 0 0 / 5%), 
+  0 1px 4px rgb(0 0 0 / 10%);
+  }
+.chat-window-container.hide {
+    opacity: 0;
+    display: none;
+  }
+        
+
 .cs-message__content{
     margin-top: 10px;
-    background-color: #e1ecf4;
-}
+    background: #009dff; 
+    background: -moz-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+    background: -webkit-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+    background: linear-gradient(to bottom, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%);}
+.cs-message-list{
+  background-color: #f1f2f3;
 
+}
 .cs-button--attachment{
     color: #666666;
+}
+.message-container{
+  background-color: #f1f2f3;
+
 }
 .cs-message-input__content-editor-wrapper{
     background-color: #e1ecf4;
@@ -68,4 +108,75 @@
 .cs-button--send[disabled]{
   
   color: #666666;
+}
+
+/* Mobile Number form */
+.main-container-auth{
+  position: relative;
+  margin:5%;
+  margin-top: 80px;
+  min-width: 15%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  z-index: 3;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 
+  0 20px 48px rgb(0 0 0 / 5%), 
+  0 1px 4px rgb(0 0 0 / 10%);
+     
+}
+.chat-intro-container{
+  position: absolute;
+  width: 100%;
+  /* Gradient for modern browsers */
+  background: #009dff; 
+  background: -moz-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+  background: -webkit-linear-gradient(top, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%); 
+  background: linear-gradient(to bottom, #009dff 0%, #3c91ff 30%, #0076ff 60%, #004cff 100%);
+    margin-top: 0%;
+  height: 130px;
+  z-index: 2;
+}
+.chat-intro-container p{
+  margin-left: 20px;
+  line-height: 10px;
+}
+.chat-intro-container p:first-child{
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.chat-intro-container p:last-child{
+  font-size: 13px;
+  font-weight: 400;
+}
+.stack-overflow-logo{
+  height: 20px;
+  width: 20px
+}
+.main-container-auth form input{
+  padding: 10px;
+  width: calc(100% - 30px);
+  border: solid 1px #0000003e;
+  font-size: 13px;
+}
+.main-container-auth form {
+  font-size: 13px;
+  color: #666767;
+}
+.main-container-auth .auth-btn{
+  margin-top: 10px;
+  padding: 10px 5px;
+  background-color: #009dff;
+  border: solid 1px #009dff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 13px;
+  font-weight: 500;
 }
