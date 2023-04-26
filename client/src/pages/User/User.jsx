@@ -5,8 +5,8 @@ import './Users.css'
 const User = ({user}) => {
   return (
 <Link to={`/Users/${user._id}`} className="user-profile-link">
-    <h3>{ user.name.charAt(0).toUpperCase()}</h3>
-    <h5>{ user.name}</h5>
+    <h5>{ user.name.charAt(0).toUpperCase()}</h5>
+    <h6>{ user.name}</h6>
 </Link>
     )
 }

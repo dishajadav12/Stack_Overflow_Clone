@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import './AskQuestion.css'
 import {postQuestion} from '../../actions/question'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faXmark} from '@fortawesome/free-solid-svg-icons'
+
 const AskQuestion = () => {
     const [questionTitle , setQuestionTitle] = useState('')
     const [questionBody , setQuestionBody] = useState('')
@@ -14,7 +17,6 @@ const AskQuestion = () => {
 
     const handleSubmit= (e) =>{
         e.preventDefault()
-        // console.log({ questionBody, questionTags, questionTitle})
         dispatch(postQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name,userId: User?.result?._id}, navigate)) 
     }
 
@@ -22,14 +24,27 @@ const AskQuestion = () => {
         if(e.key === 'Enter'){
             setQuestionBody(questionBody + "\n")
 
-        }}
+        }}  
 
+        const checkAuth =() => {
+          navigate('/Subscription')
+         
+        }
+        const cancleRef = useRef(null);
+        const handleCancle = () =>{
+            cancleRef.current.classList.add('hide');
+        }
   
   return (
     <div className='ask-question'>
         <div className="ask-ques-container">
-            <h1>Ask a public Question</h1>
-                    <h2>{questionBody}</h2>
+            <div className='subscription-container'>
+                <div className='sub-message-container' ref={cancleRef}>Upgrade now to post more than one question a day! Click here to subscribe.
+                 <button onClick={checkAuth} className='subscription-btn'>Subscribe</button>
+               <FontAwesomeIcon icon={faXmark} onClick={handleCancle} className='cancel-btn'></FontAwesomeIcon></div>
+
+            </div>
+            <h2>Ask a public Question</h2>
             <form onSubmit={handleSubmit}>
                 <div className="ask-form-container">
                     <label htmlFor="ask-ques-title">
@@ -49,7 +64,6 @@ const AskQuestion = () => {
                     </label>
                 </div>
                 <input type="submit" value='Review your question' className='review-btn'/>
-                {/* <button type='submit' className='review-btn' >Review your question</button> */}
 
             </form>
         </div>

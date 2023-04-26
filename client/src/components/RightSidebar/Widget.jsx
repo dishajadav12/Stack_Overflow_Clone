@@ -6,7 +6,7 @@ import blacklogo from '../../assets/blacklogo.svg'
 const Widget = () => {
   return (
     <div className='widget'>
-        <h4>The overflow blog</h4>
+        <h5>The overflow blog</h5>
           <div className='right-sidebar-div-1'>
               <div className='right-sidebar-div-2'>
                 <img src={Pen} alt="pen" width='12' />
@@ -17,7 +17,7 @@ const Widget = () => {
                 <p>How Intuit democratizes AI development across teams through reusability.</p>
               </div>
           </div>
-          <h4>Featured on Meta</h4>
+          <h5>Featured on Meta</h5>
           <div className='right-sidebar-div-1'>
               <div className='right-sidebar-div-2'>
                 <img src={Message} alt="comment" width='12' />
@@ -32,7 +32,7 @@ const Widget = () => {
                 <p>Temporary policy: ChatGPT is banned</p>
               </div>
           </div>
-          <h4>Hot Meta Posts</h4>
+          <h5>Hot Meta Posts</h5>
           <div className='right-sidebar-div-1'>
               <div className='right-sidebar-div-2'>
                 <span  className='meta-posts-num' >38</span>

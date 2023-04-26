@@ -8,11 +8,15 @@ import DisplayQuestion from './pages/Questions/DisplayQuestion'
 import Tags from './pages/Tags/Tags'
 import Users from './pages/User/Users'
 import UserProfile from './pages/UserProfile/UserProfile'
+import Subscription from './pages/AskQuestion/Subscription/Subscription'
+import SliverSubscription from './pages/AskQuestion/Subscription/SliverSubscription'
+import GoldSubscription from './pages/AskQuestion/Subscription/GoldSubscription'
 
 
 
 
 const AppRoute = () => {
+
   return (
     <Routes>
          <Route exact path='/' element={<Home/>}/>
@@ -23,7 +27,9 @@ const AppRoute = () => {
          <Route exact path='/Tags' element={<Tags/>}/>
          <Route exact path='/Users' element={<Users/>}/>
          <Route exact path='/Users/:id' element={<UserProfile/>}/>
-         
+         <Route exact path='/Subscription' element={<Subscription/>}/>
+         <Route exact path='/SliverSubscription' element={<SliverSubscription/>}/>
+         <Route exact path='/GoldSubscription' element={<GoldSubscription/>}/>
 
 
 

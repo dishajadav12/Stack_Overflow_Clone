@@ -1,6 +1,6 @@
 .ask-question{
     min-height: 100vh;
-    background-color: #f1f2f3;
+    background-color: #f8f9f9;
 }
 
 .ask-ques-container{
@@ -8,13 +8,13 @@
     max-width: 1200px;
 }
 
-.ask-ques-container h1{
-    padding: 80px 0px 20px 0px;
+.ask-ques-container h2{
+    padding: 20px 0px;
 }
 
 .ask-ques-container form .ask-form-container{
     padding: 20px;
-    background-color: white;
+    background-color:#ffffff;
     border-radius: 3px;
     box-shadow: 0px 10px 25px rgb(0 0 0 /5%),
     0px 20px 48px rgb(0 0 0 /5%),
@@ -23,26 +23,64 @@
 }
 
 .ask-form-container label h4{
-    margin-bottom: 0%;
+    margin-bottom: 1%;
 }
 .ask-form-container label p{
     margin: 0%;
+    color: gray;
     font-size: 13px;
     padding: 3px 0px;
 }
 .ask-form-container label input,
 .ask-form-container label textarea{
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
     border: solid 1px #0000003e;
     font-family: 'Roboto', sans-serif;
     width: calc(100% - 20px);
     resize: vertical;
 
 }
-
+.ask-form-container label input::placeholder{
+    font-size: 12px;
+}
 .review-btn{
     margin: 50px 0px;
     padding:10px;
+    background-color: #009dff;
+    border:solid 1px #009dff;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.review-btn:hover{
+    background-color: #0086d8;
+}
+.subscription-container{
+    display: flex;
+    padding-top: 80px;
+    width: 60%;
+    
+}
+.sub-message-container{
+    font-size: 14px;
+    font-weight: 600;
+    width: auto;
+    padding: 10px;
+    background-color:#f8f9f9;
+    border-radius: 3px;
+    border: solid 1px #1b1b1b3e;
+
+    
+}
+.sub-message-container.hide{
+    visibility: hidden;
+}
+.subscription-btn{
+    margin:0px 10px 0px 20px;
+    padding:5px;
+    font-size: 13px;
     background-color: #009dff;
     border:solid 1px #009dff;
     color: white;
@@ -50,6 +88,14 @@
     cursor: pointer;
     transition: 0.3s;
 }
-.review-btn{
+.cancel-btn{
+    width: 15px;
+    height: 15px;
+    text-decoration: none;
+    margin: 0px 5px;
+    cursor: pointer;
+    color: gray;
+}
+.subscription-btn:hover{
     background-color: #0086d8;
 }

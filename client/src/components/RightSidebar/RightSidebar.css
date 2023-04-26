@@ -1,7 +1,7 @@
 .right-sidebar{
     float:right;
-    width:400px;
-    margin:40px 0px 15px 24px;
+    width:320px;
+    margin:20px 0px 15px 24px;
     font-size: 13px;
 }
 .widget{
@@ -9,7 +9,7 @@
     box-shadow:3px 3px 10px rgb(0 0 0 /5%),
     -3px -3px 10px rgb(0 0 0 /5%);
 }
-.widget h4{
+.widget h5{
     background-color: #fbf3d5;
     margin:0%;
     padding:15px;
@@ -41,7 +41,7 @@
     box-shadow:3px 3px 10px rgb(0 0 0 /5%),
     -3px -3px 10px rgb(0 0 0 /5%);
 }
-.widget-tags h4{
+.widget-tags h5{
     margin: 0%;
     padding: 15px;
     background-color: #f8f9f9;
