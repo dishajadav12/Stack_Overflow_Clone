@@ -1,6 +1,5 @@
 import React from 'react'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
-import RightSidebar from '../../components/RightSidebar/RightSidebar'
 import TagsList from './TagsList'
 import './Tags.css'
 
@@ -93,7 +92,7 @@ const Tags = () => {
             }
         </div>
         </div>
-        <RightSidebar/>
+       
     </div>
   )
 }

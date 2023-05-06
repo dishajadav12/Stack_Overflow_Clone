@@ -174,7 +174,7 @@
 }
 .main-container-auth form input{
   padding: 10px;
-  width: calc(100% - 30px);
+  width: calc(100%);
   border: solid 1px #0000003e;
   font-size: 13px;
 }
@@ -183,7 +183,7 @@
   color: #666767;
 }
 .main-container-auth .auth-btn{
-  margin-top: 10px;
+  margin: 10px 70px 0px;
   padding: 10px 5px;
   background-color: #009dff;
   border: solid 1px #009dff;
@@ -193,4 +193,8 @@
   transition: 0.2s;
   font-size: 13px;
   font-weight: 500;
+}
+.stack-overflow-title{
+  margin: 20px 0px;
+  font-size: 20px;
 }

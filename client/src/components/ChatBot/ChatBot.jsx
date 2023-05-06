@@ -170,7 +170,7 @@ async function processMessageToChatGPT(chatMessages){
         <div  className='chat-window' ref={chatGptRef}>  
           <MainContainer>
             <ChatContainer>
-              <MessageList typingIndicator={typing ? <TypingIndicator content="ChatGPT is typing" />: null }>
+              <MessageList typingIndicator={typing ? <TypingIndicator content="Typing" />: null }>
                 {messages.map((message, i) => {
                   return <Message key={i} model={message}/>
                 })}

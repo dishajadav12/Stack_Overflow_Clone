@@ -61,7 +61,7 @@ const Auth = () => {
                     <label htmlFor="password">
                         <div style={{display:"flex", justifyContent:"space-between",}}>
                         <h4>Password</h4> 
-                        { !isSignup &&  <p style={{fontSize:'13px',color:"#007ac6" }}>forgot password?</p>}
+                        { !isSignup &&  <p style={{fontSize:'13px',color:"#007ac6",marginTop:"15px" }}>forgot password?</p>}
                         </div>
                         <input type="password" name="password" id="password" onChange={(e)=>{setPassword(e.target.value)}}/>
                         { isSignup && <p style={{color:"#666767", fontSize:'13px'}}> Passwors must contain at least eight <br/> characters, including at least 1<br/> letter and 1 number.</p> }
@@ -73,6 +73,7 @@ const Auth = () => {
                     
                     <button type='submit' className='auth-btn' > { isSignup ? 'Sign up' : 'Log in' }</button>
                 </form>
+                <br />
                 <p>     
                         {isSignup ? 'Already have an account?': "Don't have an account?"}
                 <button type="button" className='handle-switch-btn' onClick={handleSwitch}> {isSignup ? "Log in" : "Sign up"}</button></p>

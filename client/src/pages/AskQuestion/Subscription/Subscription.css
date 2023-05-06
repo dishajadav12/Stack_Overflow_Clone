@@ -2,10 +2,7 @@
 .title-container{
     text-align: center;
     position: fixed;
-
   width: 100%;
-  /* Gradient for modern browsers */
- 
   background: #fbf3d5; 
   padding-top: 110px;
   height: 230px;
